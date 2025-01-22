@@ -93,3 +93,10 @@ i {
     transform: translate(-100%);
   }
 }
+
+@media screen and (max-width: 633px) {
+  .card {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
