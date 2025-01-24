@@ -1,3 +1,4 @@
+const body = document.body;
 const audio = document.getElementById("audio");
 const playBtn = document.getElementById("play");
 const forwardBtn = document.getElementById("forward");
@@ -53,7 +54,46 @@ playBtn.addEventListener("click", () => {
     play();
   }
 });
+// BG - GRADIENT-COLOR
+const values = [
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+];
 
+function getGradient() {
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    const randomNumber = Math.trunc(Math.random() * values.length);
+    color += values[randomNumber];
+  }
+  return color;
+}
+
+function setGradient() {
+  const color1 = getGradient();
+  const color2 = getGradient();
+  const randomDeg = Math.trunc(Math.random() * 360);
+  const bgColor = `linear-gradient(
+    ${randomDeg}deg,
+    ${color1},
+    ${color2}
+    )`;
+  body.style.background = bgColor;
+}
 function nextMusic() {
   if (content.length - 1 <= indexContent) {
     indexContent = 0;
@@ -62,16 +102,18 @@ function nextMusic() {
   }
   changeMusic(indexContent);
   play();
+  setGradient();
 }
 
 function prevMusic() {
-  if (content.length - 2 <= indexContent) {
+  if (content.length - 1 <= indexContent) {
     indexContent = 0;
   } else {
     indexContent--;
   }
   changeMusic(indexContent);
   play();
+  setGradient();
 }
 
 function durationMusic() {
@@ -79,6 +121,7 @@ function durationMusic() {
   let currentTime = audio.currentTime;
   processDuration.style.width = `${(currentTime / duration) * 100}%`;
 }
+
 forwardBtn.addEventListener("click", nextMusic);
 backwardBtn.addEventListener("click", prevMusic);
 audio.addEventListener("ended", nextMusic);
