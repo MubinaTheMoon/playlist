@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div class="card">
+    <div class="card" id="container">
       <img
-        id="img"
+        class="img rotate"
+        id="cover"
         src="./img/Баста - Я Найду Тебя Через Века.webp"
         alt=""
         width="150"
@@ -25,29 +26,40 @@
       />
       <div class="title">
         <div class="transform-text">
-          <h3 id="name">Баста - Я Найду Тебя Через Века</h3>
+          <h2 id="name" class="run">Баста - Я Найду Тебя Через Века</h2>
         </div>
         <audio
           id="audio"
           src="./music/Баста - Я Найду Тебя Через Века.mp3"
         ></audio>
+
+        <div class="timing">
+          <div class="duration">
+            <div class="process-duration"></div>
+          </div>
+          <div class="duration-time">
+            <span id="music-playing">1:00</span>
+            <span id="music-duration">1:00</span>
+          </div>
+        </div>
+
         <div class="icons">
-          <i id="backward" class="fa-solid fa-backward"></i>
-          <i id="play" class="fa-solid fa-play"></i>
-          <i id="pause" class="fa-solid fa-pause"></i>
-          <i id="forward" class="fa-solid fa-forward"></i>
+          <button id="backward"><i class="fa-solid fa-backward"></i></button>
+          <button id="play"><i class="fa-solid fa-play"></i></button>
+          <button id="forward"><i class="fa-solid fa-forward"></i></button>
         </div>
         <div class="control">
           <input
             id="voice"
+            class="range"
             type="range"
             name=""
             step="1"
             min="0"
             max="100"
-            value="30"
+            value="20"
           />
-          <span id="volume">30</span>
+          <span id="volume">20</span>
         </div>
       </div>
     </div>

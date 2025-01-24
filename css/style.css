@@ -26,11 +26,12 @@ body {
 }
 
 img {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   padding: 5px;
   border: 2px solid #aaa;
+  object-fit: cover;
 }
 .card {
   display: flex;
@@ -43,37 +44,95 @@ img {
   align-items: center;
   gap: 20px;
   background-color: #0003;
-  padding: 15px;
+  padding: 25px;
   border-radius: 15px;
   backdrop-filter: blur(2px);
 }
 .transform-text {
   overflow: hidden;
-  width: 352px;
+  width: 449px;
 }
-h3 {
-  text-align: center;
+h2 {
+  object-fit: cover;
+  margin-bottom: 30px;
 }
 .icons {
-  font-size: 30px;
+  display: flex;
+  gap: 30px;
 }
-.rotate {
-  animation: rotate 13s linear infinite;
-  transition: all 0.3s;
-}
-#pause {
-  display: none;
-}
-i {
+button {
   cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  outline-offset: none;
 }
 .control {
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 15px;
 }
+.range {
+  width: 60%;
+  -webkit-appearance: none;
+  background-color: #0003;
+  backdrop-filter: blur(2px);
+  outline: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #d66dff;
+  cursor: pointer;
+}
+.timing {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.duration-time {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.duration {
+  width: 90%;
+  background-color: #0003;
+  backdrop-filter: blur(2px);
+  padding: 2px;
+  border-radius: 10px;
+}
+.process-duration {
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(to right, #6b8dff 0%, #ff2a5f 0%, #fff);
+  border-radius: 10px;
+}
+
+.rotate {
+  animation: rotate 10s infinite linear;
+  animation-play-state: paused;
+}
+#container.playing .rotate {
+  animation: rotate 10s infinite linear;
+  animation-play-state: running;
+}
 .run {
-  animation: run 10s linear infinite;
+  animation: run 8s linear infinite;
+  animation-play-state: paused;
+}
+#container.playing .run {
+  animation: run 8s linear infinite;
+  animation-play-state: running;
 }
 
 @keyframes rotate {
